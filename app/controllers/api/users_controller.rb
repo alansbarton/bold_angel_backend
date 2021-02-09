@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
-  def index
-    @message = "hello"
-    render "index.json.jb"
+  def show
+    @user = User.find_by(id: params[:id])
+    render "show.json.jb"
   end
 end
