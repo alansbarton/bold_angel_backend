@@ -1,0 +1,6 @@
+@photo_ones.map do |photo|
+  {
+    id: photo.id,
+    image: photo.image,
+  }
+end

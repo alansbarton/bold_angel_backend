@@ -3,5 +3,8 @@ Rails.application.routes.draw do
     get "/users/:id" => "users#show"
     post "/users" => "users#create"
     post "/sessions" => "sessions#create"
+
+    get "/photo_ones" => "photo_ones#index"
+    post "/photo_ones" => "photos_ones#create"
   end
 end
