@@ -1,12 +1,16 @@
 class Api::PhotoOnesController < ApplicationController
+  before_action :authenticate_user, except: [:index]
+
   def index
     @photo_ones = PhotoOne.all
     render "index.json.jb"
   end
 
   def create
+    response = Cloudinary::Uploader.upload(params[:image])
+    cloudinary_url = response["secure_url"]
     photo_one = PhotoOne.new(
-      image: params[:image],
+      image: cloudinary_url,
       carousel: params[:carousel],
     )
     if photo_one.save
