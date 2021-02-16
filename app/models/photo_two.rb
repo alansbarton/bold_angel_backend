@@ -1,2 +1,0 @@
-class PhotoTwo < ApplicationRecord
-end

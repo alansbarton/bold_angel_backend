@@ -7,6 +7,7 @@ class Api::PhotoOnesController < ApplicationController
   def create
     photo_one = PhotoOne.new(
       image: params[:image],
+      carousel: params[:carousel],
     )
     if photo_one.save
       render json: { message: "Image created succeddfully" }, status: :created
