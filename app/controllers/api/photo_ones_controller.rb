@@ -14,4 +14,10 @@ class Api::PhotoOnesController < ApplicationController
       render json: { error: photo_one.error.full_message }, status: :bad_request
     end
   end
+
+  def destroy
+    @photo_one = PhotoOne.find_by(id: params[:id])
+    @photo_one.destroy
+    render json: { message: "image deleted" }
+  end
 end
