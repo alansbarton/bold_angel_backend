@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show, :create]
+
   def index
     @users = User.all
     render "index.json.jb"
@@ -21,5 +23,17 @@ class Api::UsersController < ApplicationController
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
+  end
+
+  def update
+    response = Cloudinary::Uploader.upload(params[:profile_pic])
+    cloudinary_url = response["secure_url"]
+    @user = User.find_by(id: params[:id])
+    @user.email = params[:email] || @user.email
+    @user.about_me = params[:about_me] || @user.about_me
+    @user.profile_pic = cloudinary_url || cloudinary_url
+    @user.phone_number = params[:phone_number] || @user.phone_number
+    @user.save
+    render "show.json.jb"
   end
 end
