@@ -1,4 +1,4 @@
-users = User.create!(user_name: "charcoal", email: "charlett@example.com", about_me: "i do things", password: "password", phone_number: "888-888-8888", profile_pic: "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80")
+users = User.create!(user_name: "charcoal", email: "charlett@example.com", about_me: "i do things", password: "password", phone_number: "888-888-8888", profile_pic: "https://res.cloudinary.com/dnnf4debc/image/upload/v1615128857/zxdbnj4x9ywbumsh71yp.jpg")
 
 photo_ones = PhotoOne.create!(image: "https://res.cloudinary.com/dnnf4debc/image/upload/v1615044303/DSC_0770_hsbv6u.jpg", carousel: 1)
 photo_ones = PhotoOne.create!(image: "https://res.cloudinary.com/dnnf4debc/image/upload/v1615044302/DSC_0822_fierxv.jpg", carousel: 1)

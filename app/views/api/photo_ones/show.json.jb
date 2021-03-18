@@ -1,0 +1,5 @@
+{
+  id: @photo_one.id,
+  image: @photo_one.image,
+  carousel: @photo_one.carousel,
+}

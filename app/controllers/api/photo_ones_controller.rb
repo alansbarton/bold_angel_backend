@@ -1,9 +1,15 @@
 class Api::PhotoOnesController < ApplicationController
-  before_action :authenticate_user, except: [:index]
+  before_action :authenticate_user, except: [:index, :show]
 
   def index
     @photo_ones = PhotoOne.all
     render "index.json.jb"
+  end
+
+  def show
+    @photo_one = PhotoOne.find_by(id: params[:id])
+    render "show.json.jb"
+    
   end
 
   def create
@@ -18,6 +24,14 @@ class Api::PhotoOnesController < ApplicationController
     else
       render json: { error: photo_one.error.full_message }, status: :bad_request
     end
+  end
+
+
+  def update
+    @photo_one = PhotoOne.find_by(id: params[:id])
+    @photo_one.carousel = params[:carousel] || @photo_one.carousel
+    @carousel.save
+    render "show.json.jb"
   end
 
   def destroy
