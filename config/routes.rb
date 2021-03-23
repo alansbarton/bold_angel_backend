@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     post "/photo_ones" => "photo_ones#create"
     patch "/photo_ones/:id" => "photo_ones#update"
     delete "/photo_ones/:id" => "photo_ones#destroy"
+
+    get "/*path" => proc { [200, {}, [ActionView::Base.new.render(file: "public/index.html")]] }
   end
 end
