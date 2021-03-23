@@ -9,7 +9,6 @@ class Api::PhotoOnesController < ApplicationController
   def show
     @photo_one = PhotoOne.find_by(id: params[:id])
     render "show.json.jb"
-    
   end
 
   def create
@@ -26,11 +25,10 @@ class Api::PhotoOnesController < ApplicationController
     end
   end
 
-
   def update
     @photo_one = PhotoOne.find_by(id: params[:id])
     @photo_one.carousel = params[:carousel] || @photo_one.carousel
-    @carousel.save
+    @photo_one.save
     render "show.json.jb"
   end
 

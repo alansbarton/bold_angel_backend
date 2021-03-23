@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "/photo_ones" => "photo_ones#index"
     get "/photo_ones/:id" => "photo_ones#show"
     post "/photo_ones" => "photo_ones#create"
-    post "/photo_ones/:id" => "photo_ones#update"
+    patch "/photo_ones/:id" => "photo_ones#update"
     delete "/photo_ones/:id" => "photo_ones#destroy"
   end
 end
